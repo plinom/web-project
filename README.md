@@ -10,7 +10,7 @@ source env/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 
-* open localhost:8000/docs
+* open http://localhost:8000/docs/
 ```
 #### Front-end
 ```
@@ -18,7 +18,7 @@ cd front-end/
 bun install
 bun run dev
 
-* open localhost:5173
+* open http://localhost:5173/
 ```
 
 ## Up in docker
