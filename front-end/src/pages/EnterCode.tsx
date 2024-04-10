@@ -23,7 +23,6 @@ export const EnterCode = () => {
   const onSubmit: SubmitHandler<ICheckCode> = async data => {
     const response: string = await Services.checkCode(data)
     setCodeResponse(response)
-    if (response === 'Code correct') navigate('/new-password')
     reset()
   }
   return (

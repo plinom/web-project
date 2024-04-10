@@ -5,6 +5,7 @@ db
 import sqlite3 as _sqlite3
 import models as _models
 import jwt as _jwt
+import email_handling as _email_handling
 
 DATABASE_FILE = "./data/users.db"
 
@@ -23,7 +24,7 @@ def create_table() -> None:
 	con = connect()
 	cur = take_cursor(con)
 
-	query = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL);"
+	query = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL, code TEXT);"
 	cur.execute(query)
 	con.commit()
 	disconnect(con)
@@ -69,6 +70,33 @@ async def verify_loginning(user: _models.Login_user):
 	
 	return False
 
+async def update_code(email: str, code: str):
+	con = connect()
+	cur = take_cursor(con)
+
+	email_state = await get_user_by_email(email)
+	if email_state:
+		query = f"UPDATE users SET code = '{code}' WHERE email = '{email}';"
+		cur.execute(query)
+		con.commit()
+		disconnect(con)
+		return True
+	return False
+
+async def check_if_code_exists(code: str):
+	con = connect()
+	cur = take_cursor(con)
+
+	query = "SELECT * FROM users;"
+	cur.execute(query)
+	con.commit()
+	rows = cur.fetchall()
+	disconnect(con)
+
+	for row in rows:
+		if row[4] == code:
+			return True
+	return False
 
 if __name__ == "__main__":
   create_table()

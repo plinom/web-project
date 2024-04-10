@@ -31,7 +31,7 @@ export const Services = {
   async checkCode(code: ICheckCode) {
     const response = await axios.post<ICheckCode>(
       'http://localhost:8000/api/code/',
-      { code: code }
+      code
     )
     return response.data['detail']
   },

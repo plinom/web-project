@@ -9,19 +9,7 @@ import database as _database
 import jwt as _jwt
 from fastapi.middleware.cors import CORSMiddleware
 import email_handling as _email_handling
-import random as _random
-import string as _string
 import typing as _typing
-
-class RandomCode:
-	def __init__(self, code):
-		self.code = code
-	
-	def get_code(self):
-		return self.code
-	
-	def set_code(self, code: str):
-		self.code = code
 
 app = _fastapi.FastAPI()
 
@@ -58,16 +46,14 @@ async def login_user(user: _models.Login_user):
 
 @app.post("/api/password/")
 async def forgot_password(data: _models.ForgotPassword):
-	random_value = ''.join(_random.choice(_string.punctuation) for i in range(10))
-	random_object = RandomCode(random_value)
-	send_response = await _email_handling.mail_submit(data.email, random_object.get_code())
+	send_response = await _email_handling.mail_submit(data.email)
 	if send_response:
 		raise _fastapi.HTTPException(status_code=200, detail="Letter send successfully")
-	raise _fastapi.HTTPException(status_code=200, detail="The letter was not sent")
+	raise _fastapi.HTTPException(status_code=200, detail="User with this email not found")
 
 @app.post("/api/code/")
-async def check_code(data: _models.CheckCode, random_object: RandomCode = _fastapi.Depends()):
-	check_code_res = await _email_handling.check_code(data.code, random_object.get_code())
-	if check_code_res:
+async def check_code(code: _models.CheckCode):
+	is_code_correct = await _database.check_if_code_exists(code.code)
+	if is_code_correct:
 		raise _fastapi.HTTPException(status_code=200, detail="Code correct")
-	raise _fastapi.HTTPException(status_code=200, detail="Incorrect code")
+	raise _fastapi.HTTPException(status_code=200, detail="Code incorrect")
