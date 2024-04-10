@@ -33,6 +33,8 @@ bun run dev
 ```
 docker pull ghcr.io/plinom/web-project/front-end:0.0.1
 docker run -p 5173:5173 ghcr.io/plinom/web-project/front-end:0.0.1
+
+* open http://localhost:5173/
 ```
 
 #### Up Front-end
@@ -40,4 +42,6 @@ docker run -p 5173:5173 ghcr.io/plinom/web-project/front-end:0.0.1
 ```
 docker pull ghcr.io/plinom/web-project/back-end:0.0.1
 docker run -p 8000:8000 ghcr.io/plinom/web-project/back-end:0.0.1
+
+* open http://localhost:8000/docs/
 ```
