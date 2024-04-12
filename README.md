@@ -7,11 +7,7 @@
 #### Back-end
 
 ```
-cd back-end/
-python3 -m venv env
-source env/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --reload
+cd back-end/; python3 -m venv env; source env/bin/activate; pip install -r requirements.txt; uvicorn main:app --reload;
 
 * open http://localhost:8000/docs/
 ```
@@ -19,9 +15,7 @@ uvicorn main:app --reload
 #### Front-end
 
 ```
-cd front-end/
-bun install
-bun run dev
+cd front-end/; bun install; bun run dev;
 
 * open http://localhost:5173/
 ```
