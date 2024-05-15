@@ -7,10 +7,12 @@ import RequiredHandler from '../components/RequiredHandler'
 import { LoginUser } from '../interfaces/Interfaces'
 import MainLayout from '../layouts/MainLayout'
 import { Services } from '../services/Services'
+import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false)
   const [loginResponse, setLoginResponse] = React.useState<string>('')
+  const navigate = useNavigate();
   const {
     handleSubmit,
     formState: { errors },
@@ -22,6 +24,9 @@ export const Login = () => {
   const onSubmit: SubmitHandler<LoginUser> = async data => {
     const response: string = await Services.loginUser(data)
     setLoginResponse(response)
+    if (response === 'True'){
+      navigate('/landing')
+    }
     reset()
   }
   return (
@@ -30,7 +35,7 @@ export const Login = () => {
         onSubmitCapture={handleSubmit(onSubmit)}
         className='max-w-[400px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-full'
       >
-        <h1 className='text-[20px] mb-3'>Login</h1>
+        <h1 className='text-[20px] text-white mb-3'>Login</h1>
         <Controller
           rules={{ required: 'Email is required' }}
           name='email'

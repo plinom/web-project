@@ -1,0 +1,105 @@
+{
+    "trainingPlan": {
+      "name": "Beginner's Workout Plan",
+      "description": "A simple workout plan for beginners to get started with fitness.",
+      "weeks": [
+        {
+          "weekNumber": 1,
+          "days": [
+            {
+              "dayNumber": 1,
+              "workouts": [
+                {
+                  "name": "Push-ups",
+                  "sets": 3,
+                  "reps": 10
+                },
+                {
+                  "name": "Bodyweight Squats",
+                  "sets": 3,
+                  "reps": 12
+                },
+                {
+                  "name": "Plank",
+                  "duration": "30 seconds",
+                  "sets": 3
+                }
+              ]
+            },
+            {
+              "dayNumber": 2,
+              "workouts": [
+                {
+                  "name": "Walking",
+                  "duration": "30 minutes"
+                },
+                {
+                  "name": "Stretching",
+                  "duration": "15 minutes"
+                },
+                {
+                  "name": "Stretching",
+                  "duration": "15 minutes"
+                }
+              ]
+            },
+            {
+              "dayNumber": 3,
+              "workouts": [
+                {
+                  "name": "Rest"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "weekNumber": 2,
+          "days": [
+            {
+              "dayNumber": 1,
+              "workouts": [
+                {
+                  "name": "Push-ups",
+                  "sets": 4,
+                  "reps": 12
+                },
+                {
+                  "name": "Bodyweight Squats",
+                  "sets": 4,
+                  "reps": 15
+                },
+                {
+                  "name": "Plank",
+                  "duration": "40 seconds",
+                  "sets": 3
+                }
+              ]
+            },
+            {
+              "dayNumber": 2,
+              "workouts": [
+                {
+                  "name": "Running",
+                  "duration": "20 minutes"
+                },
+                {
+                  "name": "Stretching",
+                  "duration": "15 minutes"
+                }
+              ]
+            },
+            {
+              "dayNumber": 3,
+              "workouts": [
+                {
+                  "name": "Rest"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

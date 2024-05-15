@@ -31,7 +31,7 @@ export const Auth = () => {
         onSubmitCapture={handleSubmit(onSubmit)}
         className='max-w-[400px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-full'
       >
-        <h1 className='text-[20px] mb-3'>Registration</h1>
+        <h1 className='text-[20px] text-white mb-3'>Registration</h1>
         <Controller
           rules={{ required: 'Name is required' }}
           name='name'
