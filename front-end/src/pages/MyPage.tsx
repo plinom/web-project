@@ -7,7 +7,7 @@ import Training from '../components/NormalTraining'
 
 const MyPage = () => {
   return (
-    <div className='bg-gray-900'>
+    <div className='dark:bg-gray-900 bg-white'>
       <Header />
       <MyPageHero />
       <div className='pb-10'>
