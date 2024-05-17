@@ -2,6 +2,7 @@
 db
 """
 
+import json
 import sqlite3 as _sqlite3
 import models as _models
 import jwt as _jwt

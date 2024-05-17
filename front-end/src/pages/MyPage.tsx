@@ -3,6 +3,7 @@ import For from '../components/Form2'
 import Graphs from '../components/Graphs'
 import Header from '../components/Header'
 import MyPageHero from '../components/MyPageHero'
+import Training from '../components/NormalTraining'
 
 const MyPage = () => {
   return (
@@ -12,6 +13,7 @@ const MyPage = () => {
       <div className='pb-10'>
         <Graphs />
         <For />
+        <Training/>
       </div>
     </div>
   )
