@@ -1,18 +1,18 @@
 import { Form, Input } from 'antd'
 import React from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import CustomButton from '../components/CustomButton'
 import Redirect from '../components/Redirect'
 import RequiredHandler from '../components/RequiredHandler'
 import { LoginUser } from '../interfaces/Interfaces'
 import MainLayout from '../layouts/MainLayout'
 import { Services } from '../services/Services'
-import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false)
   const [loginResponse, setLoginResponse] = React.useState<string>('')
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const {
     handleSubmit,
     formState: { errors },
@@ -24,8 +24,11 @@ export const Login = () => {
   const onSubmit: SubmitHandler<LoginUser> = async data => {
     const response: string = await Services.loginUser(data)
     setLoginResponse(response)
-    if (response === 'True'){
-      navigate('/landing')
+    console.log(data['email'])
+    if (response === 'True') {
+      localStorage.setItem('email', data['email'])
+      console.log(localStorage.getItem('email'))
+      navigate('/mypage')
     }
     reset()
   }

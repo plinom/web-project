@@ -1,19 +1,20 @@
-import React from 'react';
-import Header from '../components/Header';
-import MyPageHero from '../components/MyPageHero';
-import img from "../Images/logo.jpg";
-import Graphs from '../components/Graphs';
+import React from 'react'
+import For from '../components/Form2'
+import Graphs from '../components/Graphs'
+import Header from '../components/Header'
+import MyPageHero from '../components/MyPageHero'
 
 const MyPage = () => {
   return (
     <div className='bg-gray-900'>
       <Header />
-      <MyPageHero/>
+      <MyPageHero />
       <div className='pb-10'>
-      <Graphs/>
+        <Graphs />
+        <For />
       </div>
     </div>
-  );
+  )
 }
 
-export default MyPage;
+export default MyPage

@@ -1,14 +1,12 @@
 // App.js
-import React from 'react';
-import ParentComponent from '../components/Parent';
+import React from 'react'
 
 const Fetch = () => {
   return (
     <div>
       <h1>Simple React Page</h1>
-      <ParentComponent />
     </div>
-  );
-};
+  )
+}
 
-export default Fetch;
+export default Fetch

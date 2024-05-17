@@ -18,3 +18,6 @@ class ForgotPassword(_pydantic.BaseModel):
 
 class CheckCode(_pydantic.BaseModel):
 	code: str
+
+class GetName(_pydantic.BaseModel):
+  email: str

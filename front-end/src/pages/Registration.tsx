@@ -9,7 +9,7 @@ import { RegistrationUser } from '../interfaces/Interfaces'
 import MainLayout from '../layouts/MainLayout'
 import { Services } from '../services/Services'
 
-export const Auth = () => {
+export const Registration = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false)
   const [registrateUser, setRegistrateUser] = React.useState<string>('')
   const {

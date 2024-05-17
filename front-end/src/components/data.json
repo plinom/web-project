@@ -6,7 +6,9 @@
       "reps": 8,
       "working_weight": "75 kg",
       "relax_time": "90 seconds",
-      "video_link": "https://www.youtube.com/watch?v=lgnoqGjXVa8"
+      "video_link": "https://www.youtube.com/embed/4Y2ZdHCOXok?si=HKpbu9wX8Roc8ozt",
+      "height": 200,
+      "width": 300
     },
     {
       "exercise_name": "Dumbbell Bicep Curl",
@@ -14,7 +16,9 @@
       "reps": 10,
       "working_weight": "15 kg (each dumbbell)",
       "relax_time": "60 seconds",
-      "video_link": "https://www.youtube.com/watch?v=swVhB1Vf4tw"
+      "video_link": "https://www.youtube.com/embed/JyV7mUFSpXs?si=keBJoEXs6Ze8cWyl",
+      "height": 200,
+      "width": 300
     },
     {
       "exercise_name": "Dumbbell Bicep Curl",
@@ -22,7 +26,9 @@
       "reps": 10,
       "working_weight": "15 kg (each dumbbell)",
       "relax_time": "60 seconds",
-      "video_link": "https://www.youtube.com/watch?v=swVhB1Vf4tw"
+      "video_link": "https://www.youtube.com/embed/jjnJHhzZUUM?si=KrCAortRSB4q9m29",
+      "height": 200,
+      "width": 300
     },
     {
       "exercise_name": "Squat",
@@ -30,7 +36,9 @@
       "reps": 6,
       "working_weight": "100 kg",
       "relax_time": "120 seconds",
-      "video_link": "https://www.youtube.com/watch?v=nEQQle9-0NA"
+      "video_link": "https://www.youtube.com/embed/IB_icWRzi4E?si=Z51APlwHAwTOzWUX",
+      "height": 200,
+      "width": 300
     }
   ],
   "day_2": [
@@ -40,7 +48,9 @@
       "reps": 8,
       "working_weight": "50 kg",
       "relax_time": "90 seconds",
-      "video_link": "https://www.youtube.com/watch?v=GfKFhcwmI94"
+      "video_link": "https://www.youtube.com/embed/QAQ64hK4Xxs?si=YjwKzJYbO2AZOjaW",
+      "height": 200,
+      "width": 300
     },
     {
       "exercise_name": "Deadlift",
@@ -48,7 +58,9 @@
       "reps": 5,
       "working_weight": "120 kg",
       "relax_time": "120 seconds",
-      "video_link": "https://www.youtube.com/watch?v=cD8zGnT2n_A"
+      "video_link": "https://www.youtube.com/embed/XxWcirHIwVo?si=rlsgGe0wBe02RFDV",
+      "height": 200,
+      "width": 300
     }
   ],
   "day_3": [
@@ -58,7 +70,9 @@
       "reps": "Max",
       "working_weight": "Bodyweight",
       "relax_time": "60 seconds",
-      "video_link": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+      "video_link": "https://www.youtube.com/embed/IODxDxX7oi4?si=zayszIwusoJ7wyrm",
+      "height": 200,
+      "width": 300
     },
     {
       "exercise_name": "Pull-up",
@@ -66,7 +80,9 @@
       "reps": "Max",
       "working_weight": "Bodyweight",
       "relax_time": "60 seconds",
-      "video_link": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+      "video_link": "https://www.youtube.com/embed/eGo4IYlbE5g?si=PXxdwrUkMwQ9xVmI",
+      "height": 200,
+      "width": 300
     }
   ]
 }

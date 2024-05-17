@@ -10,6 +10,7 @@ import jwt as _jwt
 from fastapi.middleware.cors import CORSMiddleware
 import email_handling as _email_handling
 import typing as _typing
+from data.data import data
 
 app = _fastapi.FastAPI()
 
@@ -57,3 +58,17 @@ async def check_code(code: _models.CheckCode):
 	if is_code_correct:
 		raise _fastapi.HTTPException(status_code=200, detail="Code correct")
 	raise _fastapi.HTTPException(status_code=200, detail="Code incorrect")
+
+@app.get("/api/trainings/")
+async def get_trainings():
+	return {'data': data}
+
+@app.post("/api/getname/")
+async def generate_program(email: _models.GetName):
+  user = await _database.new_get_user_by_email(email.email)
+  return user[1]
+
+@app.post("api/lastkg/")
+async def return_kg(email: _models.GetName):
+  user_kg = await _database.get_last_kg_by_email(email.email)
+  return user_kg
