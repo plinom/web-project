@@ -26,7 +26,10 @@ const Header = () => {
         <div className='hidden md:flex w-full md:w-auto' id='navbar-default'>
           <ul className='flex p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700'>
             <li>
-              <HeaderLink to={'/main'} content='Home' />
+              {/* <HeaderLink to={'/main'} content='Home' /> */}
+              <Link to={localStorage.getItem('email') === '' ? '/' : '/main'}>
+                Home
+              </Link>
             </li>
             <li>
               <a
@@ -48,7 +51,9 @@ const Header = () => {
         </div>
         <div className='ml-auto'>
           <div className='relative flex gap-5'>
-            <Link to={localStorage.getItem('email') == '' ? '/auth' : '/'}>
+            <Link
+              to={localStorage.getItem('email') === '' ? '/auth' : '/mypage'}
+            >
               <CgProfile size={30} />
             </Link>
             {localStorage.getItem('email') ? (

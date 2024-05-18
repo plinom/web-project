@@ -1,4 +1,3 @@
-import type { CheckboxProps } from 'antd'
 import { Checkbox } from 'antd'
 import React, { useState } from 'react'
 
@@ -9,9 +8,6 @@ const Form = ({ onSubmit }) => {
     e.preventDefault()
     onSubmit(e) // Call the onSubmit function passed from the parent component
     setIsSubmitted(true)
-  }
-  const onChange: CheckboxProps['onChange'] = e => {
-    console.log(`checked = ${e.target.checked}`)
   }
   return (
     <div className='my-5 dark:bg-gray-900'>
@@ -114,7 +110,7 @@ const Form = ({ onSubmit }) => {
         {/* Manually created checkboxes */}
         <div className='grid grid-cols-3 gap-4 mb-4'>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-1'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -123,7 +119,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-2'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -132,7 +128,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-3'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -141,7 +137,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-4'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -150,7 +146,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-5'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -159,7 +155,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-6'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -168,7 +164,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-7'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -177,7 +173,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-8'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
@@ -186,7 +182,7 @@ const Form = ({ onSubmit }) => {
             </label>
           </div>
           <div className='flex items-center'>
-            <Checkbox onChange={onChange} />
+            <Checkbox />
             <label
               htmlFor='checkbox-9'
               className='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'

@@ -24,12 +24,10 @@ export const Login = () => {
   const onSubmit: SubmitHandler<LoginUser> = async data => {
     const response: string = await Services.loginUser(data)
     setLoginResponse(response)
-    console.log(data['email'])
     if (response === 'True') {
       localStorage.setItem('email', data['email'])
       const results = '0.01,0.01,0.01,0.01,0.01,0.01'
       localStorage.setItem('results', results)
-      console.log(localStorage.getItem('email'))
       navigate('/mypage')
     }
     reset()
