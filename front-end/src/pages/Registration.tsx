@@ -1,15 +1,17 @@
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons'
-import { Button, Form, Input, Tooltip } from 'antd'
+import { Form, Input, Tooltip } from 'antd'
 import React from 'react'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
-import { CustomButton } from '../components/CustomButton'
-import { RequiredHandler } from '../components/RequiredHandler'
+import CustomButton from '../components/CustomButton'
+import Redirect from '../components/Redirect'
+import RequiredHandler from '../components/RequiredHandler'
 import { RegistrationUser } from '../interfaces/Interfaces'
-import { MainLayout } from '../layouts/MainLayout'
+import MainLayout from '../layouts/MainLayout'
+import { Services } from '../services/Services'
 
-export const Auth = () => {
+export const Registration = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false)
+  const [registrateUser, setRegistrateUser] = React.useState<string>('')
   const {
     handleSubmit,
     formState: { errors },
@@ -18,8 +20,9 @@ export const Auth = () => {
   } = useForm<RegistrationUser>({
     mode: 'onChange',
   })
-  const onSubmit: SubmitHandler<RegistrationUser> = data => {
-    console.log(data)
+  const onSubmit: SubmitHandler<RegistrationUser> = async data => {
+    const response: string = await Services.registrateUser(data)
+    setRegistrateUser(response)
     reset()
   }
   return (
@@ -28,6 +31,7 @@ export const Auth = () => {
         onSubmitCapture={handleSubmit(onSubmit)}
         className='max-w-[400px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-full'
       >
+        <h1 className='text-[20px] text-black dark:text-white mb-3'>Registration</h1>
         <Controller
           rules={{ required: 'Name is required' }}
           name='name'
@@ -89,9 +93,10 @@ export const Auth = () => {
           )}
         />
         <CustomButton content={'Submit'} />
-        <Button type='link' block>
-          <Link to={'/'}>Login</Link>
-        </Button>
+        <div className='mt-1'>
+          <Redirect path={'/'} content={'Login'} />
+        </div>
+        {registrateUser}
       </Form>
     </MainLayout>
   )

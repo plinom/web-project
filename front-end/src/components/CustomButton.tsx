@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CustomButton = ({ content }: { content: string }) => {
+const CustomButton = ({ content }: { content: string }) => {
   return (
     <button
       type='submit'
@@ -10,3 +10,5 @@ export const CustomButton = ({ content }: { content: string }) => {
     </button>
   )
 }
+
+export default React.memo(CustomButton)
