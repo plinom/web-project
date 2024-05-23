@@ -1,6 +1,6 @@
 import React from "react";
 
-function ExerciseForm({
+const ExerciseForm = ({
   selectedDay,
   selectedData,
   inputData,
@@ -10,7 +10,7 @@ function ExerciseForm({
   handleSetSelectionChange,
   handleSaveResult,
   isEditing,
-}) {
+}) => {
   return (
     <div className="my-10 bg-gray-200 dark:bg-gray-700 rounded-2xl p-10">
       <h2 className="max-w-2xl mb-3 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black dark:text-white">
