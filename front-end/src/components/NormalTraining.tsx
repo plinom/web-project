@@ -1,54 +1,79 @@
-import React, { useEffect, useState } from 'react'
-import { IDays } from '../interfaces/Interfaces'
-import { Services } from '../services/Services'
-import data from './data.json'
+import React, { useEffect, useState } from 'react';
+import { Services } from '../services/Services';
+import data from './data.json';
+import DaySelector from './DaySelector';
+import ExerciseForm from './ExerciseForm';
+import ExerciseResults from './ExerciseResults';
 
-function NormalTraining() {
-  const [trainings, setTrainings] = useState<IDays>()
+const NormalTraining = () => {
+  const [trainings, setTrainings] = useState();
+  const [selectedDay, setSelectedDay] = useState('');
+  const [inputData, setInputData] = useState({});
+  const [setSelection, setSetSelection] = useState({});
 
   useEffect(() => {
     const handleGetTrainings = async () => {
-      const response = await Services.getTrainings()
-      setTrainings(response)
-    }
-    handleGetTrainings()
-  }, [])
+      const response = await Services.getTrainings();
+      setTrainings(response);
+    };
+    handleGetTrainings();
+  }, []);
+
+  const handleSelectChange = (event) => {
+    setSelectedDay(event.target.value);
+  };
+
+  const handleSetNumberChange = (day, exerciseIndex, sets) => {
+    setInputData((prevState) => {
+      const newData = { ...prevState };
+      if (!newData[day]) newData[day] = {};
+      newData[day][exerciseIndex] = Array.from({ length: sets }).map(() => ({ weight: '', reps: '' }));
+      return newData;
+    });
+    setSetSelection((prevState) => ({
+      ...prevState,
+      [day]: {
+        ...prevState[day],
+        [exerciseIndex]: 0,
+      },
+    }));
+  };
+
+  const handleInputChange = (day, exerciseIndex, setIndex, field, value) => {
+    setInputData((prevState) => {
+      const newData = { ...prevState };
+      newData[day][exerciseIndex][setIndex][field] = value;
+      return newData;
+    });
+  };
+
+  const handleSetSelectionChange = (day, exerciseIndex, event) => {
+    setSetSelection((prevState) => ({
+      ...prevState,
+      [day]: {
+        ...prevState[day],
+        [exerciseIndex]: event.target.value,
+      },
+    }));
+  };
+
   return (
     <div className='max-w-screen-xl mx-auto px-8 lg:px-0'>
-      {Object.keys(data).map((day, index) => (
-        <div key={index} className='my-10 bg-gray-200 dark:bg-gray-700 rounded-2xl p-10'>
-          <h2 className='max-w-2xl mb-3 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black dark:text-white'>
-            Day {index + 1}
-          </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            {data[day].map((exercise, exerciseIndex) => (
-              <div key={exerciseIndex} className='flex flex-col md:flex-row'>
-                <div className='card text-black dark:text-white my-5 text-lg md:w-1/2'>
-                  <h3 className='text-3xl '>{exercise.exercise_name}</h3>
-                  <p>Sets: {exercise.sets}</p>
-                  <p>Reps: {exercise.reps}</p>
-                  <p>Working Weight: {exercise.working_weight}</p>
-                  <p>Relax Time: {exercise.relax_time}</p>
-                </div>
-                <div className='card text-white my-5 text-lg md:w-1/2'>
-                  <iframe
-                    width={exercise.width}
-                    height={exercise.height}
-                    src={exercise.video_link}
-                    title='YouTube video player'
-                    frameborder='0'
-                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                    referrerpolicy='strict-origin-when-cross-origin'
-                    allowfullscreen
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+      <DaySelector selectedDay={selectedDay} handleSelectChange={handleSelectChange} data={data} />
+      {selectedDay && (
+        <ExerciseForm
+          selectedDay={selectedDay}
+          selectedData={data[selectedDay]}
+          inputData={inputData}
+          setSelection={setSelection}
+          handleSetNumberChange={handleSetNumberChange}
+          handleInputChange={handleInputChange}
+          handleSetSelectionChange={handleSetSelectionChange}
+        />
+      )}
+      <ExerciseResults inputData={inputData} data={data} />
     </div>
-  )
+  );
 }
 
-export default NormalTraining
+export default NormalTraining;
