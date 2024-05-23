@@ -74,6 +74,7 @@ const ExerciseForm = ({
                       Weight:
                       <input
                         type="number"
+                        min="1"
                         value={
                           inputData[selectedDay][exerciseIndex][
                             setSelection[selectedDay][exerciseIndex]
@@ -95,6 +96,7 @@ const ExerciseForm = ({
                       Reps:
                       <input
                         type="number"
+                        
                         value={
                           inputData[selectedDay][exerciseIndex][
                             setSelection[selectedDay][exerciseIndex]

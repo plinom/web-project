@@ -6,6 +6,7 @@ const ExerciseResults = ({ inputData, data }) => {
       <h2 className="max-w-2xl mb-3 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black dark:text-white">
         Results
       </h2>
+      <div className="flex flex-row gap-28">
       {Object.keys(inputData).map((day) => (
         <div key={day}>
           <h3 className="text-3xl mb-3">
@@ -27,6 +28,7 @@ const ExerciseResults = ({ inputData, data }) => {
             ))}
         </div>
       ))}
+      </div>
     </div>
   );
 };
